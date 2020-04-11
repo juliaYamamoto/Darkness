@@ -6238,6 +6238,11 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.20754719
       objectReference: {fileID: 0}
+    - target: {fileID: 626959063649231834, guid: 6339ddaea129c4cceafdb7c652f164ad,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4167587125005533809, guid: 6339ddaea129c4cceafdb7c652f164ad,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -6337,6 +6342,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9217938891709397709, guid: 17b56d1bf32bb4389b7de9622f1f81dc,
+        type: 3}
+      propertyPath: m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9217938891709397709, guid: 17b56d1bf32bb4389b7de9622f1f81dc,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9217938891709397709, guid: 17b56d1bf32bb4389b7de9622f1f81dc,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9217938891709397709, guid: 17b56d1bf32bb4389b7de9622f1f81dc,
+        type: 3}
+      propertyPath: m_Range
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9217938891709397709, guid: 17b56d1bf32bb4389b7de9622f1f81dc,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9217938892455663375, guid: 17b56d1bf32bb4389b7de9622f1f81dc,
         type: 3}
       propertyPath: m_LocalPosition.x
