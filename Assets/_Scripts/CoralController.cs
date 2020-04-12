@@ -5,12 +5,12 @@ using UnityEngine;
 public class CoralController : MonoBehaviour
 {
     //Light
-    private float minLightIntensity = 0.8f;
-    private float maxLightIntensity = 3.0f;
+    private float minLightIntensity = 1.0f;
+    private float maxLightIntensity = 4.0f;
 
     public bool isTouched = false;
     public bool isGettingLight = false;
-    public float speedOnGettingLight = 2.0f;
+    public float speedOnGettingLight = 1.2f;
     public Light characterLight;
 
 
