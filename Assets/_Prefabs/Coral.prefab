@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 139792138529400884}
   - component: {fileID: 139792138529400891}
   - component: {fileID: 139792138529400890}
+  - component: {fileID: 5252310071042273409}
   m_Layer: 0
   m_Name: Coral
   m_TagString: Untagged
@@ -148,7 +149,26 @@ MonoBehaviour:
   isTouched: 0
   isGettingLight: 0
   speedOnGettingLight: 2
-  characterLight: {fileID: 139792139424221433}
+  coralLight: {fileID: 139792139424221433}
+--- !u!95 &5252310071042273409
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139792138529400889}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ac6127e5f6cf244478f14aeb54324e21, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &139792139424221432
 GameObject:
   m_ObjectHideFlags: 0

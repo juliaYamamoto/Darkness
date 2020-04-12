@@ -10,11 +10,14 @@ public class CharacterController : MonoBehaviour
     public float speed;
 
     //Light
+    public Light characterLight;
     private float minLightIntensity = 5.0f;
     private float maxLightIntensity = 20.0f;
 
-    public float currentLightIntensity = 0.0f;
-    public Light characterLight;
+    public bool isGettingLight = false;
+    public bool isGivingLight = false;
+    public float speedOnTransferingLight = 1.2f;
+    public float targetLightAmount = 0;
 
 
     private void Start()
@@ -25,8 +28,8 @@ public class CharacterController : MonoBehaviour
     private void Setup()
     {
         //Light
-        currentLightIntensity = minLightIntensity;
-        characterLight.intensity = currentLightIntensity;
+        //characterLight.intensity = minLightIntensity;
+        characterLight.intensity = 15.0f;
     }
 
 
@@ -34,6 +37,36 @@ public class CharacterController : MonoBehaviour
     {
         //Movement
         transform.Translate(new Vector3(horizontalInput, verticalInput));
+
+        //Light = Give
+        if (isGivingLight)
+        {
+            characterLight.intensity -= (speedOnTransferingLight * Time.deltaTime);
+
+            if (characterLight.intensity <= targetLightAmount)
+            {
+                characterLight.intensity = targetLightAmount;
+                isGivingLight = false;
+
+                if (targetLightAmount == 0)
+                {
+                    print("Morri");
+                }
+            }
+        }
+
+        //Light = Get
+        if (isGettingLight)
+        {
+            characterLight.intensity += (speedOnTransferingLight * Time.deltaTime);
+
+            if (characterLight.intensity >= targetLightAmount)
+            {
+                characterLight.intensity = targetLightAmount;
+                isGettingLight = false;
+                targetLightAmount = 0;
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -43,6 +76,40 @@ public class CharacterController : MonoBehaviour
         verticalInput = (Input.GetAxis("Vertical") * speed) * Time.fixedDeltaTime;
     }
 
-   
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "Coral")
+        {
+            CoralController coral = collision.gameObject.GetComponent<CoralController>();
 
+            if (!coral.isTouched){
+                coral.isTouched = true;
+                GiveLight();
+            }
+        }
+    }
+
+    private void GiveLight()
+    {
+        if (!isGettingLight && !isGivingLight) {
+            targetLightAmount = characterLight.intensity - 5.0f;
+            isGivingLight = true;
+        }
+
+    }
+
+    private void GetLight()
+    {
+        if (!isGettingLight && !isGivingLight)
+        {
+            targetLightAmount = characterLight.intensity + 10;
+            if (targetLightAmount > maxLightIntensity)
+            {
+                targetLightAmount = maxLightIntensity;
+                print("Maximo de luz");
+            }
+            
+            isGettingLight = true;
+        }
+    }
 }

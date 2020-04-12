@@ -11,8 +11,7 @@ public class CoralController : MonoBehaviour
     public bool isTouched = false;
     public bool isGettingLight = false;
     public float speedOnGettingLight = 1.2f;
-    public Light characterLight;
-
+    public Light coralLight;
 
 
     private void Start()
@@ -23,16 +22,16 @@ public class CoralController : MonoBehaviour
     private void Setup()
     {
         //Light
-        characterLight.intensity = minLightIntensity;
+        coralLight.intensity = minLightIntensity;
     }
 
     private void Update()
     {
         if (isGettingLight) {
-            characterLight.intensity += (speedOnGettingLight * Time.deltaTime);
+            coralLight.intensity += (speedOnGettingLight * Time.deltaTime);
 
-            if (characterLight.intensity >= maxLightIntensity) {
-                characterLight.intensity = maxLightIntensity;
+            if (coralLight.intensity >= maxLightIntensity) {
+                coralLight.intensity = maxLightIntensity;
                 isGettingLight = false;
             }
         }
@@ -42,7 +41,7 @@ public class CoralController : MonoBehaviour
     {
         if (collision.gameObject.name == "Character" && !isTouched)
         {
-            isTouched = true;
+            //isTouched = true;
             isGettingLight = true;
         }
     }
