@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
+    //GameController
+    public GameController gameController;
+                
     //Movement
     private float horizontalInput;
     private float verticalInput;
@@ -33,6 +36,9 @@ public class CharacterController : MonoBehaviour
 
     private void Setup()
     {
+        //Game Controller
+        this.gameController = GetComponent<GameController>();
+
         //Light
         characterLight.intensity = 5.0f;
         UpdateLightIndicator(amount: characterLight.intensity);
@@ -41,8 +47,11 @@ public class CharacterController : MonoBehaviour
 
     private void Update()
     {
-        //Movement
-        transform.Translate(new Vector3(horizontalInput, verticalInput));
+        if(gameController.currentGameState == GameState.Keys || gameController.currentGameState == GameState.Game)
+        {
+            //Movement
+            transform.Translate(new Vector3(horizontalInput, verticalInput));
+        }
 
         //Light: Give
         if (isGivingLight)
@@ -80,27 +89,35 @@ public class CharacterController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Movement
-        horizontalInput = (Input.GetAxis("Horizontal") * speed) * Time.fixedDeltaTime;
-        verticalInput = (Input.GetAxis("Vertical") * speed) * Time.fixedDeltaTime;
+        if (gameController.currentGameState == GameState.Keys || gameController.currentGameState == GameState.Game)
+        {
+            //Movement
+            horizontalInput = (Input.GetAxis("Horizontal") * speed) * Time.fixedDeltaTime;
+            verticalInput = (Input.GetAxis("Vertical") * speed) * Time.fixedDeltaTime;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Coral")
+        if (gameController.currentGameState == GameState.Keys || gameController.currentGameState == GameState.Game)
         {
-            CoralController coral = collision.gameObject.GetComponent<CoralController>();
 
-            if (!coral.isTouched){
-                coral.isTouched = true;
-                GiveLight();
+            if (collision.gameObject.tag == "Coral")
+            {
+                CoralController coral = collision.gameObject.GetComponent<CoralController>();
+
+                if (!coral.isTouched)
+                {
+                    coral.isTouched = true;
+                    GiveLight();
+                }
             }
-        }
 
-        else if (collision.gameObject.tag == "Lightball")
-        {
-            Destroy(collision.gameObject);
-            GetLight();
+            else if (collision.gameObject.tag == "Lightball")
+            {
+                Destroy(collision.gameObject);
+                GetLight();
+            }
         }
     }
 

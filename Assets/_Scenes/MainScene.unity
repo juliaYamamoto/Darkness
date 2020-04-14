@@ -45720,6 +45720,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!1 &895219333 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4375777219411568989, guid: f0d1e194e409942e2ae7f404e0770d6d,
+    type: 3}
+  m_PrefabInstance: {fileID: 992449227}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &992449227
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45785,7 +45791,7 @@ PrefabInstance:
     - target: {fileID: 4375777219411568989, guid: f0d1e194e409942e2ae7f404e0770d6d,
         type: 3}
       propertyPath: m_Name
-      value: Lightball
+      value: FirstLightball
       objectReference: {fileID: 0}
     - target: {fileID: 4375777219411568989, guid: f0d1e194e409942e2ae7f404e0770d6d,
         type: 3}
@@ -46011,6 +46017,7 @@ GameObject:
   - component: {fileID: 1955324468}
   - component: {fileID: 1955324467}
   - component: {fileID: 921792758899779389}
+  - component: {fileID: 1955324472}
   m_Layer: 0
   m_Name: Character
   m_TagString: Character
@@ -46030,6 +46037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 561d5fd90d4274d949b4703d529b805d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameController: {fileID: 0}
   speed: 1.2
   characterLight: {fileID: 1162230896}
   isGettingLight: 0
@@ -46161,6 +46169,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1955324472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955324466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6285e73866a654a219cff2abb20e37aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentGameState: 0
+  intro001: {fileID: 7287113749182598440}
+  intro002: {fileID: 2620467903895795889}
+  intro003: {fileID: 4116985905051522605}
+  keys:
+  - {fileID: 5267492909812949144}
+  - {fileID: 8005919081033559660}
+  - {fileID: 3702824969798872304}
+  - {fileID: 3979895045263670700}
+  firstLightball: {fileID: 895219333}
+  tutorial001: {fileID: 7115449199813903675}
+  tutorial002: {fileID: 5012439547150740392}
+  tutorial003: {fileID: 2020641032577237684}
+  endBad001: {fileID: 6882863903570413341}
+  endBad002: {fileID: 4186899631136617386}
+  endGood001: {fileID: 3203870843285972520}
+  endGood002: {fileID: 5417299859685382099}
+  endGood003: {fileID: 7025619323952331101}
+  endFinal: {fileID: 4999594981598568921}
 --- !u!224 &217411752574078867
 RectTransform:
   m_ObjectHideFlags: 0
@@ -46924,7 +46963,7 @@ GameObject:
   - component: {fileID: 3487274401233039880}
   - component: {fileID: 7115449199813903675}
   m_Layer: 5
-  m_Name: Intro004
+  m_Name: Tutorial001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47321,7 +47360,7 @@ GameObject:
   - component: {fileID: 1354300049654561806}
   - component: {fileID: 2020641032577237684}
   m_Layer: 5
-  m_Name: Intro006
+  m_Name: Tutorial003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47475,7 +47514,7 @@ GameObject:
   - component: {fileID: 8604437640222029335}
   - component: {fileID: 5012439547150740392}
   m_Layer: 5
-  m_Name: Intro005
+  m_Name: Tutorial002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
