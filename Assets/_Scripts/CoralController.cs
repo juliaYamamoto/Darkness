@@ -39,9 +39,8 @@ public class CoralController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Character" && !isTouched)
+        if (collision.gameObject.tag == "Character" && !isTouched)
         {
-            //isTouched = true;
             isGettingLight = true;
         }
     }

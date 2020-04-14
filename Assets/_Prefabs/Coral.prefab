@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5252310071042273409}
   m_Layer: 0
   m_Name: Coral
-  m_TagString: Untagged
+  m_TagString: Coral
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,7 +100,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.28020903}
+  m_Offset: {x: 0, y: 0.032338858}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -111,7 +111,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4, y: 1.4395819}
+  m_Size: {x: 0.7345753, y: 0.7498559}
   m_EdgeRadius: 0
 --- !u!50 &139792138529400891
 Rigidbody2D:
