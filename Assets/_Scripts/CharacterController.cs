@@ -34,7 +34,7 @@ public class CharacterController : MonoBehaviour
     private void Setup()
     {
         //Light
-        characterLight.intensity = 15.0f;
+        characterLight.intensity = 5.0f;
         UpdateLightIndicator(amount: characterLight.intensity);
     }
 
