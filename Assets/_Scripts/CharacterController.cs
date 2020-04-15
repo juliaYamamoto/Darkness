@@ -36,7 +36,7 @@ public class CharacterController : MonoBehaviour
 
     private void Setup()
     {
-        //Game Controller
+        //Game Controllerx
         this.gameController = GetComponent<GameController>();
 
         //Light
@@ -115,7 +115,13 @@ public class CharacterController : MonoBehaviour
 
             else if (collision.gameObject.tag == "Lightball")
             {
-                Destroy(collision.gameObject);
+                if (collision.gameObject.name == "FirstLightball")
+                {
+                    gameController.CollectFirstLightball();
+                }
+                else {
+                    Destroy(collision.gameObject);
+                }
                 GetLight();
             }
         }
