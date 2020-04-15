@@ -25,6 +25,7 @@ public class GameController : MonoBehaviour
     public Image[] keys;
 
     public GameObject firstLightball;
+    public GameObject firstCoral;
 
     public Text tutorial001;
     public Text tutorial002;
@@ -102,17 +103,22 @@ public class GameController : MonoBehaviour
         //Show text
         Sequence lightballSequence = DOTween.Sequence();
         lightballSequence.Append(tutorial001.DOFade(semiFadeValue, fadeSpeed))
-            .SetDelay(1.0f)
-            .Append(tutorial001.DOFade(0, fadeSpeed));
+            .Append(tutorial001.DOFade(0, fadeSpeed)).OnComplete(ShowFirstCoral);
     }
 
     private void ShowFirstCoral()
     {
         //Show the first Coral
-        //firstLightball.gameObject.SetActive(true);
+        firstCoral.gameObject.SetActive(true);
     }
 
-    private void CollectFirstCoral()
+    public void CollectFirstCoral()
     {
+        //Show text
+        Sequence lightballSequence = DOTween.Sequence();
+        lightballSequence.Append(tutorial002.DOFade(semiFadeValue, fadeSpeed))
+            .Append(tutorial003.DOFade(semiFadeValue, fadeSpeed))
+            .Append(tutorial002.DOFade(0, fadeSpeed))
+            .Append(tutorial003.DOFade(0, fadeSpeed));
     }
 }

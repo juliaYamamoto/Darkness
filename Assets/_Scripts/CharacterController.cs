@@ -108,6 +108,11 @@ public class CharacterController : MonoBehaviour
 
                 if (!coral.isTouched)
                 {
+                    if (collision.gameObject.name == "FirstCoral")
+                    {
+                        gameController.CollectFirstCoral();
+                    }
+
                     coral.isTouched = true;
                     GiveLight();
                 }
