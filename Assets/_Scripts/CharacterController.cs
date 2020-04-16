@@ -65,7 +65,7 @@ public class CharacterController : MonoBehaviour
 
                 if (targetLightAmount == 0)
                 {
-                    print("Morri");
+                    gameController.BadEnd();
                 }
 
                 targetLightAmount = 0;
@@ -137,6 +137,7 @@ public class CharacterController : MonoBehaviour
         if (!isGettingLight && !isGivingLight) {
             targetLightAmount = characterLight.intensity - 5.0f;
             isGivingLight = true;
+            gameController.AddToTotalCorals();
 
             UpdateLightIndicator(amount: targetLightAmount);
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public enum GameState
@@ -18,6 +19,9 @@ public class GameController : MonoBehaviour
 {
     public GameState currentGameState = GameState.Intro;
 
+    public int currentCorals = 0;
+    public int totalCorals = 10;
+
     public Text intro001;
     public Text intro002;
     public Text intro003;
@@ -26,6 +30,11 @@ public class GameController : MonoBehaviour
 
     public GameObject firstLightball;
     public GameObject firstCoral;
+
+    public Button playAgainButton;
+
+    public SpriteRenderer characterSpriteRenderer;
+    public Animator characterAnimator;
 
     public Text tutorial001;
     public Text tutorial002;
@@ -121,4 +130,66 @@ public class GameController : MonoBehaviour
             .Append(tutorial002.DOFade(0, fadeSpeed))
             .Append(tutorial003.DOFade(0, fadeSpeed));
     }
+
+    public void AddToTotalCorals()
+    {
+        currentCorals++;
+        print("CORAL! " + currentCorals + "/ " + totalCorals);
+        if (currentCorals >= totalCorals)
+        {
+            GoodEnd();
+        }
+    }
+
+    private void GoodEnd()
+    {
+        currentGameState = GameState.GoodEnd;
+
+        //Show text
+        Sequence lightballSequence = DOTween.Sequence();
+        lightballSequence.Append(endGood001.DOFade(semiFadeValue, fadeSpeed))
+            .Append(endGood002.DOFade(semiFadeValue, fadeSpeed))
+            .Append(endGood001.DOFade(0, fadeSpeed))
+            .Append(endGood002.DOFade(0, fadeSpeed))
+            .OnComplete(HideCharacter);
+
+    }
+
+    public void BadEnd()
+    {
+        currentGameState = GameState.BadEnd;
+
+        //Show text
+        Sequence lightballSequence = DOTween.Sequence();
+        lightballSequence.Append(endBad001.DOFade(semiFadeValue, fadeSpeed))
+            .Append(endBad002.DOFade(semiFadeValue, fadeSpeed))
+            .Append(endBad001.DOFade(0, fadeSpeed))
+            .Append(endBad002.DOFade(0, fadeSpeed))
+            .OnComplete(HideCharacter);
+    }
+
+    private void HideCharacter()
+    {
+        characterAnimator.enabled = false;
+        characterSpriteRenderer.enabled = false;
+        
+        //Show text
+        Sequence lightballSequence = DOTween.Sequence();
+        lightballSequence.Append(endFinal.DOFade(semiFadeValue, fadeSpeed))
+            .OnComplete(EnablePlayAgain);
+    }
+
+    private void EnablePlayAgain()
+    {
+        //Make it possible to play again
+        playAgainButton.gameObject.SetActive(true);
+        playAgainButton.interactable = true;
+    }
+
+
+    public void PlayAgain()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 }
