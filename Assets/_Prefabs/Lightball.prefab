@@ -77,7 +77,7 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -191,7 +191,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc99f7f4b492d4db1ad13c6129316666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundball: {fileID: 0}
 --- !u!50 &8488927148522586482
 Rigidbody2D:
   serializedVersion: 4
